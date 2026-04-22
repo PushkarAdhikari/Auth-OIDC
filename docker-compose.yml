@@ -1,0 +1,14 @@
+services:
+  postgresdb:
+    image: postgres:17
+    container_name: postgresdb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: auth_oidc_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - 'postgres_data:/var/lib/postgresql/data'
+volumes:
+  postgres_data:
