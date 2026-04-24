@@ -4,6 +4,7 @@ import { users } from '../../db/schema';
 import { db } from '../../db';
 import { createHmac, randomBytes } from 'node:crypto';
 import { eq } from 'drizzle-orm';
+import { createUserToken } from './utils/token';
 
 class AuthenticationController {
     public async handleSignup(req: Request, res: Response) {
@@ -67,17 +68,12 @@ class AuthenticationController {
         })
 
         //TOKEN GENERATION LOGIC SHOULD BE HERE
-
+        const token = createUserToken({ id: userSelect.id });
 
         return res.json({
             message: 'User has been signed in successfully!',
-            data: { token: userSelect.id }
+            data: { token }
         })
-
-        // return res.status(200).json({
-        //     message: 'User has been signed in successfully!',
-        //     data: { id: userSelect.id }
-        // })
     }
 
 }

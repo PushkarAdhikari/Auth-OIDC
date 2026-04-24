@@ -14,7 +14,7 @@ export function createApplication() {
         return res.json({ message: 'Welcome to Auth Service' });
     })
 
-    app.post('/sign-up', authRouter)
+    app.use('/auth', authRouter);
 
 
     return app;
