@@ -40,7 +40,7 @@ export function restrictToAuthenticatedUsers() {
         // @ts-ignore
         if (!req.user) {
             return res.status(401).json({
-                error: 'Unauthorized! Please provide a valid token to access this resource.'
+                error: 'Authentication required'
             })
         }
         next();
