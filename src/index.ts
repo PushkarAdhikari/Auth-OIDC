@@ -5,7 +5,7 @@ async function main() {
     try {
         const app = createApplication();
         const server = createServer(app);
-        const PORT: number = Number(process.env.PORT) || 3000;
+        const PORT: number = Number(process.env.PORT) || 8080;
 
         server.listen(PORT, () => {
             console.log(`Http server is running on PORT: ${PORT}`);
